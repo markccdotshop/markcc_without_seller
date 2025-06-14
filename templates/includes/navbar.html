@@ -2,10 +2,7 @@
 <nav class="navbar navbar-expand-lg custom-navbar">
   <div class="container">
     <a class="navbar-brand logo" href="{% url 'index' %}">
-      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 64 64" fill="none">
-        <rect x="4" y="4" width="56" height="56" rx="12" fill="#3498db"/>
-        <text x="32" y="42" text-anchor="middle" font-size="24" fill="white" font-family="Arial, sans-serif" font-weight="bold">FZ</text>
-      </svg>
+      <img src="{% static 'css/images/favicon.png' %}" alt="FullzHub Logo" width="32" height="32" class="d-inline-block align-text-top me-2">
       <span class="logo-text">fullzhub</span>
     </a>
 
@@ -30,7 +27,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="shopDropdown">
             <li><a class="dropdown-item" href="{% url 'cvv' %}">SHOP 1</a></li>
-            <li><a class="dropdown-item" href="#">SHOP 2</a></li>
+            <!-- <li><a class="dropdown-item" href="#">SHOP 2</a></li> -->
           </ul>
         </li>
 

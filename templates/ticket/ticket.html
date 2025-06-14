@@ -1,30 +1,96 @@
 {% extends 'base.html' %}
-{% block title %}fullzhub | Support{% endblock %}
-
+{% block title %}FullzHub | Ticket{% endblock %}
+{% block meta_description %}{% endblock %}
+{% block meta_keywords %}{% endblock %}
+{% block meta_author %}FullzHub Team{% endblock %}
 {% block content %}
 <div class="container my-5">
-  <div class="telegram-support-section text-center p-4 rounded shadow">
-    <h2 class="mb-4 support-title">Need Help? We’re on Telegram!</h2>
-    <p class="mb-5 support-desc">For quick support or to stay updated with announcements, join our Telegram channels below.</p>
+    <div class="ticket-system shadow-sm p-4 rounded bg-white">
+        <!-- Create Ticket Section -->
+        <div class="mb-5">
+            <h3 class="text-primary fw-bold mb-3">📝 Create a New Ticket</h3>
+            {% if messages %}
+                <div class="mb-3">
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags == 'error' %}alert-danger{% elif message.tags == 'success' %}alert-success{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <form action="/ticket/create_ticket/" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                </div>
+                <div class="mb-3">
+                    <textarea name="message" class="form-control" rows="4" placeholder="Explain your problem..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Create Ticket</button>
+            </form>
+        </div>
 
-    <div class="row justify-content-center">
-      <div class="col-md-5 mb-4">
-        <a href="https://t.me/YOUR_UPDATE_CHANNEL" target="_blank" class="telegram-card update-channel">
-          <div class="card-body">
-            <h4>📢 Join Update Channel</h4>
-            <p>Stay up-to-date with system status, news & updates.</p>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-5 mb-4">
-        <a href="https://t.me/YOUR_SUPPORT_CHAT" target="_blank" class="telegram-card support-chat">
-          <div class="card-body">
-            <h4>💬 Get Support</h4>
-            <p>Talk to our support team directly on Telegram.</p>
-          </div>
-        </a>
-      </div>
+        <!-- Ticket History Section -->
+        <div>
+            <h3 class="text-primary fw-bold text-center mb-4">🎫 Your Ticket History</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-center align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                            <th>Status</th>
+                            <th>Created</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ticket in tickets %}
+                        <tr>
+                            <td>{{ ticket.id }}</td>
+                            <td>{{ ticket.subject }}</td>
+                            <td>{{ ticket.message }}</td>
+                            <td class="{{ ticket.get_status_class }}">{{ ticket.get_status_text }}</td>
+                            <td>{{ ticket.created_at|timesince }} ago</td>
+                            <td>
+                                {% if ticket.admin_reply %}
+                                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#ticketModal{{ ticket.id }}">View</button>
+                                {% else %}
+                                <span class="badge bg-warning text-dark">{{ ticket.get_status_text }}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="6">No tickets found.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <!-- Modal Section -->
+    {% for ticket in tickets %}
+        {% if ticket.admin_reply %}
+        <div class="modal fade" id="ticketModal{{ ticket.id }}" tabindex="-1" aria-labelledby="ticketModalLabel{{ ticket.id }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="ticketModalLabel{{ ticket.id }}">Reply to Ticket #{{ ticket.id }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-muted mb-1"><strong>Admin Reply:</strong></p>
+                        <p>{{ ticket.admin_reply.admin_reply }}</p>
+                        <p class="text-end text-secondary"><small>{{ ticket.admin_reply.created_at|timesince }} ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
 </div>
 {% endblock %}

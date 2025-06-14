@@ -1,62 +1,122 @@
-html, body {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* login.css */
+
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../css/images/hacking.gif') no-repeat center center fixed;
-  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%; 
-  max-width: 400px; 
-  margin: auto; 
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.75); 
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff10;
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  padding: 30px 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  color: white;
+  animation: fadeIn 1s ease-in-out;
 }
 
-.login-container .form-control {
-  background-color: transparent !important;
-  color: #cccccc !important;
-  border: 1px solid #444 !important;
-}
-
-.login-container .form-label {
-  color: #cccccc !important; 
-}
-
-
-.form-floating {
-  color: #cccccc !important;
-}
-
-.login-content {
-  width: 100%; 
-  text-align: center; 
-}
 .login-content h2 {
-  color: #cccccc;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 15px;
 }
+
 .login-content p {
-  color: #FAB005;
-}
-.sign-up, a {
-  color: #FAB005 !important;
-  text-decoration: none !important;
-}
-.sign-up, a:hover{
-  color: #198754 !important;
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 20px;
 }
 
+.form-control {
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
 
+.form-control::placeholder {
+  color: #ccc;
+}
+
+.form-floating > label {
+  color: #ccc;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group .form-control {
+  border-radius: 8px 0 0 8px;
+}
+
+.input-group .btn {
+  border-radius: 0 8px 8px 0;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.alert {
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.text-danger {
+  color: #ff6b6b !important;
+}
+
+.text-success {
+  color: #32cd32 !important;
+}
+
+a {
+  color: #76c7ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Placeholder for form errors */
+.alert-danger,
+.alert-success {
+  text-align: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-container {
+      margin: 20px;
+      padding: 25px 20px;
+  }
+}
