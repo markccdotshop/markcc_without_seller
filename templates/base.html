@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Website Title{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'css/images/hacking.gif' %}">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{% block meta_description %}Default description{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}Default keywords{% endblock %}">
+    <meta name="author" content="{% block meta_author %}Name or Company{% endblock %}">
+    <!-- Stylesheets -->
+    <link type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link type="text/css" href="{% static 'css/style.css'%}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'css/responsive.css'%}" rel="stylesheet" />
+    {% block additional_styles %}{% endblock %}
+</head>
+<body>
+    {% block header %}
+    <header>
+        {% include 'includes/navbar.html' %}
+    </header>
+    {% endblock header %}
+    <div id="content">
+    {% block content %} {% endblock content %}
+    </div>
+    {% block footer %}
+    <footer>
+        {% include 'includes/footer.html' %}
+    </footer>
+    {% endblock footer %}
+    <script src="{% static 'js/extra/jquery-3.7.1.min.js'%}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script>
+      $(function () {
+          $(document).scroll(function () {
+            var $nav = $(".navbar");
+            $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+          });
+        });
+    </script>
+    {% block additional_scripts %} {% endblock %}
+    {% block inline_scripts %} {% endblock %}
+</body>
+</html>

@@ -1,0 +1,133 @@
+@media (max-width: 768px) {
+  body, html {
+    font-size: 14px;
+  }
+  .navbar {
+    padding: 10px 0;
+    position: relative;
+  }
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+  .navbar-toggler {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+  .navbar-collapse {
+    text-align: center;
+  }
+  .navbar-nav .nav-link {
+    padding: 10px 15px;
+  }
+  .nav-text-right {
+    margin-right: 45px;
+  }
+  .nav-text-right .dropdown-menu {
+    background-color: #2c2f33;
+  }
+  .navbar-brand img {
+    width: 28px;
+    height: 28px;
+  }
+  .page-container {
+    max-width: 100%;
+    padding: 10px;
+    margin-top: 0;
+  }
+  .update-section {
+    padding: 10px;
+  }
+
+  .date-title {
+    font-size: 1em;
+  }
+
+  .update-card span {
+    font-size: 0.8em;
+  }
+
+  .ticket-submit-btn, .view-reply-btn, .crypto-add-btn, .btn-status-check {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  .modal-content {
+    padding: 1rem;
+  }
+  .page-container .modal {
+    padding: 1rem;
+  }
+
+  .table-responsive {
+      overflow-x: auto;
+      background-color: #1f2123;
+      -webkit-overflow-scrolling: touch;
+  }
+  .table-responsive table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+  .table-responsive th,
+  .table-responsive thead {
+      display: none;
+    }
+  .table-responsive table tbody tr td {
+    display: block;
+    text-align: right;
+    padding: 0.75rem 1rem;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .table-responsive table tbody tr td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    text-align: left;
+    padding-left: 1rem;
+    width: 50%;
+    color: #6c757d;
+  }
+  .table-responsive .table tbody tr td:empty::before {
+    content: '\00a0';
+  }
+  .table-responsive table tbody tr td:first-child {
+    background:  #141517;
+    font-weight: bold;
+  }
+  .news-page-container, .cvv-page-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  .btn-status-check {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+  }
+  .order-page-container table tbody tr td:first-child {
+    display: none;
+    
+  }
+  .card-data, .coin-address{
+    background:  #141517;
+    text-align: center !important;
+    font-size: small;
+  }
+  .cart-page-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  #footer {
+    padding: 20px 15px;
+    flex-direction: column;
+  }
+  #footer a {
+    margin: 5px 0;
+    padding: 5px;
+  } 
+}

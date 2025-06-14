@@ -1,0 +1,80 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg custom-navbar">
+  <div class="container">
+    <a class="navbar-brand logo" href="{% url 'index' %}">
+      <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 64 64" fill="none">
+        <rect x="4" y="4" width="56" height="56" rx="12" fill="#3498db"/>
+        <text x="32" y="42" text-anchor="middle" font-size="24" fill="white" font-family="Arial, sans-serif" font-weight="bold">FZ</text>
+      </svg>
+      <span class="logo-text">fullzhub</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+      aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon-bar"></span>
+      <span class="navbar-toggler-icon-bar"></span>
+      <span class="navbar-toggler-icon-bar"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navbarMain">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'index' %}">HOME</a>
+        </li>
+
+        <!-- Shop Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            SHOP
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+            <li><a class="dropdown-item" href="{% url 'cvv' %}">SHOP 1</a></li>
+            <li><a class="dropdown-item" href="#">SHOP 2</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'orders' %}">ORDERS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'billing' %}">BILLING</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'ticket' %}">TICKET</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+        </li>
+
+        <li class="nav-item cart-display">
+          <a class="nav-link" href="{% url 'cart_detail' %}">
+            <i class="bi bi-cart"></i>
+            <span class="text-danger" id="cartCount">{{ cart_count }}</span>
+          </a>
+        </li>
+
+        {% if request.user.profile.seller %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'seller' %}">SELLER PANEL</a>
+        </li>
+        {% endif %}
+      </ul>
+
+      <div class="d-flex align-items-center nav-user-info">
+        <div class="balance-display">
+          <i class="bi bi-currency-dollar"></i> {{ user.profile.balance }}
+        </div>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person"></i> {{ request.user }}
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="{% url 'change/password' %}">Change Password</a></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

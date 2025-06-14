@@ -1,0 +1,881 @@
+/* ================= NAVBAR THEME ================= */
+.custom-navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #e6e6e6;
+  padding: 0.8rem 1rem;
+  font-family: 'Open Sans', sans-serif;
+  z-index: 999;
+}
+
+/* Navbar brand */
+.custom-navbar .navbar-brand {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #3498db;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Nav links */
+.custom-navbar .nav-link {
+  color: #2c3e50 !important;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+  background-color: #3498db;
+  color: #fff !important;
+}
+
+/* Dropdown */
+.custom-navbar .dropdown-menu {
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  animation: fadeIn 0.3s ease-in-out;
+  margin-top: 8px;
+}
+
+.custom-navbar .dropdown-item {
+  font-weight: 500;
+  padding: 10px 16px;
+  color: #2c3e50;
+  transition: all 0.2s ease;
+}
+
+.custom-navbar .dropdown-item:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* Balance / User Info */
+.nav-user-info {
+  gap: 15px;
+}
+
+.balance-display {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #27ae60;
+}
+
+.dropdown-toggle {
+  color: #3498db;
+  background-color: #fff;
+  border: 1px solid #3498db;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.dropdown-toggle:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* Mobile toggler */
+.navbar-toggler {
+  border: none;
+  outline: none;
+  padding: 6px;
+}
+
+.navbar-toggler-icon-bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #3498db;
+  border-radius: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .nav-user-info {
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--nav-text);
+  text-decoration: none;
+  gap: 8px;
+}
+
+.logo-icon {
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-icon {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  color: var(--nav-text);
+}
+
+[data-theme="dark"] .logo-text {
+  color: #ecf0f1;
+}
+
+[data-theme="light"] .logo-text {
+  color: #2c3e50;
+}
+
+
+/* =================== Table base styles (Bright New) ======================== */
+
+.table-responsive {
+  margin-top: 20px;
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  background-color: #fff; /* white container */
+}
+
+.table-responsive table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fefefe;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.table-responsive th,
+.table-responsive td {
+  padding: 12px 16px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.table-responsive th {
+  background-color: #e9f1fb; /* very light blue */
+  color: #2c3e50; /* dark blue-gray */
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.table-responsive tr:last-child td {
+  border-bottom: none;
+}
+
+.table-responsive tr:hover {
+  background-color: #d6e9fb; /* subtle blue highlight */
+  cursor: pointer;
+}
+
+/* Content container */
+.content-container {
+  padding: 20px;
+  margin-top: 60px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Page container */
+.page-container {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9fbff; /* very light */
+  color: #2c3e50;
+  box-shadow: 0 8px 30px rgba(52, 152, 219, 0.1);
+  border-radius: 12px;
+}
+
+
+
+/* Modal content */
+.modal-content {
+  background-color: #ffffff;
+  color: #2c3e50;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Open Sans', sans-serif;
+}
+
+/*====================== News Updates Page ======================*/
+.update-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #f9f9f9;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.header-bar h1 {
+  font-size: 28px;
+  color: #0e918c;
+  margin-bottom: 10px;
+}
+
+.maintenance-buttons a {
+  margin-left: 10px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-maintain.on {
+  background: #ffc107;
+  color: #111;
+}
+
+.btn-maintain.off {
+  background: #28a745;
+  color: #fff;
+}
+
+.update-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.update-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.update-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.update-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.update-date {
+  color: #999;
+  font-size: 12px;
+}
+.update-date-badge {
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.info-line {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+
+.update-body h4 a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.update-body h4 a:hover {
+  color: #0056b3;
+}
+
+.update-body p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+/*====================== Cvv Page Styles (Light & Fresh) ======================*/
+.cvv-page-container .accordion-item {
+  background: #f9fbff; /* very light blue */
+  border: 1px solid #d0d8e8;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.cvv-page-container .accordion-button {
+  background: #e9f1fb; /* light blue */
+  color: #2c3e50; /* dark blue-gray */
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: none;
+  transition: background-color 0.3s ease;
+}
+
+.cvv-page-container .accordion-button:not(.collapsed) {
+  background-color: #d6e9fb; /* slightly deeper blue */
+  color: #1a2738;
+}
+
+.cvv-page-container .form-control {
+  background-color: #fff;
+  color: #2c3e50;
+  border: 1.5px solid #a9b9d6;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+
+.cvv-page-container .form-control:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 6px rgba(52, 152, 219, 0.3);
+  outline: none;
+}
+
+.cvv-page-container .btn-outline-yellow {
+  border-color: #f1c40f;
+  color: #f1c40f;
+  font-size: small;
+  background: transparent;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.cvv-page-container .btn-outline-yellow:hover {
+  background-color: #f1c40f;
+  color: #fff;
+}
+
+.cvv-page-container .btn-outline-success {
+  border-color: #27ae60;
+  color: #27ae60;
+  font-size: small;
+  background: transparent;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.cvv-page-container .btn-outline-success:hover {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+.cvv-page-container .form-check-input {
+  background-color: #fff;
+  border: 1.5px solid #a9b9d6;
+  width: 18px;
+  height: 18px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.cvv-page-container .form-check-input:checked {
+  background-color: #27ae60;
+  border-color: #27ae60;
+}
+
+.cvv-page-container .form-label {
+  color: #57606a; /* medium gray-blue */
+  font-weight: 500;
+}
+
+
+/* Filter section */
+.search-filter {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/*  max-width: 1200px;*/
+  margin: 30px auto 40px;
+  padding: 30px 35px;
+}
+.search-filter h3 {
+  color: #34495e;
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+
+/* Labels */
+.form-label {
+  font-weight: 600;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+/* Small text under bin */
+td small {
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+
+/* =======================Order History Styles==============================  */
+.order-page-container {
+/*  max-width: 1200px;*/
+}
+.order-header {
+  text-align: center;
+}
+.order-title {
+/*  color: #f9b934;*/
+  margin: 0;
+  font-size: 2.5rem;
+}
+/*============billing system=========================*/
+/* General spacing and font enhancements */
+.billing-page-container {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+}
+
+/* Instruction Card */
+.card h2.card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1e3a8a;
+}
+
+/* Section Headings */
+.section-heading {
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+/* Crypto Options Grid */
+.crypto-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.crypto-name {
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.crypto-add-btn {
+    display: inline-block;
+    font-size: 0.85rem;
+    padding: 5px 12px;
+    background-color: #f59e0b;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s ease-in-out;
+}
+
+.crypto-add-btn:hover {
+    background-color: #d97706;
+}
+
+/* History Table */
+.history-form table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.history-form th,
+.history-form td {
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+.coin-address {
+    font-size: 0.85rem;
+    word-break: break-all;
+    max-width: 180px;
+}
+
+/* Status Buttons */
+.btn-status-check {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    border: none;
+    background-color: transparent;
+    color: #0d6efd;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-status-check:hover {
+    background-color: #fbe133;
+    color: white;
+}
+
+.status-received {
+    font-weight: bold;
+    color: #16a34a;
+    font-size: 0.85rem;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .crypto-name {
+        font-size: 0.8rem;
+    }
+
+    .crypto-add-btn {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+
+    .history-form th,
+    .history-form td {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+    .card h2.card-title {
+        font-size: 1.2rem;
+    }
+
+    .section-heading {
+        font-size: 1.1rem;
+    }
+}
+.notice-card {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.notice-card .card-header {
+    border-bottom: none;
+    background: linear-gradient(90deg, #2563eb, #1e40af);
+}
+
+.notice-card .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.notice-card .card-body h5 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+}
+
+.notice-card .card-body p {
+    line-height: 1.6;
+}
+
+/*======================Ticket System Styles===========================*/
+.telegram-support-section {
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+}
+
+.support-title {
+  font-weight: 700;
+  color: #0751e6;
+  font-size: 2rem;
+}
+
+.support-desc {
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.telegram-card {
+  display: block;
+  background: #f4faff;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #000;
+}
+
+.telegram-card:hover {
+  border-color: #0751e6;
+  background: #eaf4ff;
+  transform: translateY(-5px);
+}
+
+.telegram-card h4 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #0751e6;
+}
+
+.telegram-card p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Specific card color variants */
+.telegram-card.update-channel {
+  border-left: 6px solid #4dd456;
+}
+
+.telegram-card.support-chat {
+  border-left: 6px solid #0751e6;
+}
+
+@media (max-width: 768px) {
+  .telegram-card {
+    padding: 20px;
+  }
+}
+
+/*======================FAQ Page Styles===========================*/
+.faq-page-container {
+  font-family: 'Arial', sans-serif;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+.faq-title, .faq-question {
+  margin-bottom: 15px;
+}
+.accordion-button {
+  border: none;
+  padding: 1rem;
+}
+
+
+.accordion-item {
+  background-color: transparent;
+  border: none;
+}
+.hidden {
+  display: none;
+}
+.text-center {
+  text-align: center;
+}
+
+/*======================CART Page Styles===========================*/
+.cart-page-container {
+  width: 100%;
+  padding: 30px 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+}
+
+/* Cart Summary */
+.cart-summary {
+  background-color: #e9f1fb;
+  padding: 20px 30px;
+  border-radius: 10px;
+  margin-top: 30px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+}
+
+/* Add to Cart Button */
+#addToCartButton {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#addToCartButton:hover {
+  background-color: #43a047;
+}
+#addToCartButton:before {
+  content: '\f07a';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  margin-right: 8px;
+}
+
+/* Flash Messages */
+.flash-message {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  color: #fff;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.flash-message.hidden {
+  display: none;
+}
+.flash-message.success {
+  background-color: #28a745;
+}
+.flash-message.error {
+  background-color: #dc3545;
+}
+
+/* Alerts */
+.alert-success { background-color: #4CAF50; }
+.alert-warning { background-color: #FF9800; }
+.alert-danger { background-color: #F44336; }
+.hidden { display: none; }
+
+/* Loading Indicator */
+#loadingIndicator {
+  display: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ======================password-change======================= */
+.change-password-container{
+  background-color: rgba(26, 28, 32, 0.85);
+  color: #ffffff;
+  padding: 4rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.btn-change-password {
+  padding: 10px 15px;
+  background-color: #f9b934;
+  color: #202327;
+  border: none;
+  border-radius: 20px;
+  transition: background-color 0.2s;
+}
+.btn-change-password:hover {
+  background-color: #4CAF50;
+  color: #fff;
+}
+.password-change, .ticket-textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #32383e;
+  color: #ffffff;
+}
+/* =======================Footer Styles============================== */
+.custom-footer {
+  background-color: #0751e6;
+  color: #ffffff;
+  font-size: 0.95rem;
+  border-top: 4px solid #4dd456;
+  position: relative;
+  width: 100%;
+  margin-top: 40px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.custom-footer p {
+  margin: 0;
+  padding: 10px 0;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.custom-footer strong {
+  color: #4dd456;
+}
+
+
+
+/* =====Pagination======= */
+
+/* Pagination wrapper */
+.pagination-wrapper {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Container style */
+.pagination {
+    display: inline-flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+}
+
+/* Page links */
+.pagination .page-link {
+    color: #2c3e50;
+    background-color: #f0f4f8;
+    border: 1px solid #ced4da;
+    margin: 0 2px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.pagination .page-link:hover {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+/* Active page */
+.pagination .page-item.active .page-link {
+    background-color: #27ae60;
+    border-color: #27ae60;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Disabled page */
+.pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+    cursor: not-allowed;
+}

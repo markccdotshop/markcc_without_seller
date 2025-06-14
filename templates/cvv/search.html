@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load pagination_tags %}
+{% block title %}fullzhub|Cvv{% endblock %}
+{% block meta_description %}{% endblock %}
+{% block meta_keywords %}{% endblock %}
+{% block meta_author %}fullzhub Team{% endblock %}
+{% block additional_styles %}
+{% endblock %}
+{% block content %}
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="cvv-page-container page-container">
+        <section class="search-section">
+          <div class="search-filter">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item bg-transparent">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button bg-light shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                      <i class="bi bi-search me-2"></i> Advanced Card Filter
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <form class="row g-3" action="{% url 'search' %}" method="GET">
+                       
+                        <!-- Base Selection -->
+                        <div class="form-group col-md-2 col-3 col-lg-2">
+                          <label for="baseSelect" class="form-label">Base</label>
+                          <select id="baseSelect" class="form-control" name="base">
+                            <option value="">Any</option>
+                            {% for base in bases %}
+                              <option value="{{ base.id }}" {% if request.GET.base == base.id|stringformat:"s" %}selected{% endif %}>
+                                {{ base.name|escape }}
+                              </option>
+                            {% endfor %}
+                          </select>
+                        </div>
+
+                        <div class="form-group col-md-2 col-3 col-lg-2">
+                          <label for="inputEmail4" class="form-label">Bin</label>
+                          {% render_field filter.form.bin type="text" class="form-control"%}
+                        </div>
+                        <div class="form-group col-md-2 col-3 col-lg-2">
+                          <label for="inputPassword4" class="form-label">City</label>
+                          {% render_field filter.form.city type="text" class="form-control"%}
+                        </div>
+                        <div class="form-group col-md-2 col-3 col-lg-2">
+                          <label for="inputAddress" class="form-label">State</label>
+                          {% render_field filter.form.state type="text" class="form-control"%}
+                        </div>
+                        <div class="form-group col-md-2 col-3 col-lg-2">
+                            <label for="inputZip" class="form-label">Zip</label>
+                            {% render_field filter.form.zip type="text" class="form-control"%}
+                        </div>
+                        <div class="form-group col-md-2 col-3 col-lg-2">
+                            <label for="inputEmail4" class="form-label">Bank</label>
+                            {% render_field filter.form.bank type="text" class="form-control"%}
+                        </div>
+                        <div class="form-group col-md-2 col-3 col-lg-2">
+                            <label for="inputState" class="form-label">Refund</label>
+                            {% render_field filter.form.refund type="text" class="form-control form-select" %}
+                        </div>
+                        <div class="form-group col-md-2 col-3 col-lg-2">
+                            <label for="inputState" class="form-label">Country</label>
+                            {% render_field filter.form.card_country type="text" class="form-control form-select" %}
+                        </div>
+                        <div class="form-group col-md-2 col-3 col-lg-2">
+                            <label for="inputState" class="form-label">Brand</label>
+                            {% render_field filter.form.brand type="text" class="form-control form-select" %}
+                        </div>
+                        <div class="form-group col-md-2 col-3 col-lg-2">
+                            <label for="inputState" class="form-label">Type</label>
+                            {% render_field filter.form.typecard type="text" class="form-control form-select" %}
+                        </div>
+                        <div class="form-group col-md-2 col-3 col-lg-2">
+                            <label for="inputState" class="form-label">Card Level</label>
+                            {% render_field filter.form.levelcard type="text" class="form-control form-select" %}
+                        </div>
+                        <div class="col-12">
+                          <button type="submit" class="btn btn-outline-success" value="search">Search</button>
+                            <button type="submit" class="btn btn-outline-yellow" name="reset">Reset</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </section>
+          <div class="text-center">
+            {% if messages %}
+                {% for message in messages %}
+                    <p id="messages" class='text-danger text-center'>{{ message }} </p>
+                {% endfor %}
+            {% endif %}
+          </div>
+          <div id="flashMessage"></div>
+        <!-- CVV Cards Table -->
+        <section class="cvv-table-section">
+          <div class="cvv-table table-responsive">
+            <form method="POST">
+              {% csrf_token %}
+              <table>
+                  <thead>
+                      <tr>
+                          <th scope="col">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="selectAllCheckboxes">
+                              </div>
+                            </th>
+                          <th scope="col">Bin</th>
+                          <th scope="col">Exp</th>
+                          <!-- <th scope="col">Name</th> -->
+                          <th scope="col">City</th>
+                          <th scope="col">State</th>
+                          <th scope="col">Zip</th>
+                          <th scope="col">Country/Bank</th>
+                          <th scope="col">Refund</th>
+                          <th scope="col">Base</th>
+                          <th scope="col">Action</th>
+                      </tr>
+                  </thead>
+                  <tbody class="align-middle">
+                      {% for x in cards %}
+                      <tr>
+                          <td class="checkbox-cell">
+                            <div class="form-check">
+                              <input class="form-check-input individual-checkbox" type="checkbox" value="{{ x.id }}" id="flexCheck{{ forloop.counter }}">
+                              <label class="form-check-label" for="flexCheck{{ forloop.counter }}"></label>
+                            </div>
+                          </td>
+                          <td data-label="Bin">{{ x.card_bin }}<br><small>{{ x.card_brand }}/{{ x.card_type }}<br>{{ x.card_level }}</small></td>
+                          <td data-label="Exp">{{ x.card_expiry_month }}/{{ x.card_expiry_year }}</td>
+                          <!-- <td data-label="Name">{{ x.card_holder_name|slice:":5" }}******</td> -->
+                          <td data-label="City">{{ x.card_city }}</td>
+                          <td data-label="State">{{ x.card_state }}</td>
+                          <td data-label="Zip">{{ x.card_zip_code }}</td>
+                          <td data-label="Country/Bank">{{ x.card_country }}<br><small>{{ x.card_bank }}</small></td>
+                          <td data-label="Refund">
+                            {% if x.card_refund_status == 1 %}
+                              <span class="text-success fw-bold">
+                                <i class="bi bi-check-circle-fill me-1"></i> Refundable
+                              </span>
+                            {% elif x.card_refund_status == 7 %}
+                              <span class="text-danger fw-bold">
+                                <i class="bi bi-x-circle-fill me-1"></i> No Refund
+                              </span>
+                            {% else %}
+                              <small class="text-danger">unknown</small>
+                            {% endif %}
+                          </td>
+                          
+                          <td data-label="Base">
+                            <small>{{ x.card_base.name }}</small>
+                          </td>
+                          <td data-label="Action">
+                            <button type="button" class="btn btn-outline-info buyButton" data-card-id="{{ x.id }}">Buy(${{ x.card_price }})</button>
+                          </td>
+                      </tr>
+                      {% empty %}
+                      <tr>
+                          <td colspan="20" class="text-danger text-center">No data found!</td>
+                      </tr>
+                      {% endfor %}
+                  </tbody>
+              </table>
+              <div class="fab-container">
+                  <button type="button" class="btn btn-primary" id="addToCartButton" style="display: none;">
+                  Add to Cart
+                  </button>
+              </div>
+            
+            </form>
+          </div>
+        </section>
+        <!-- Pagination -->
+        <div class="cvv-navigation mt-4">
+          <nav aria-label="CVV page navigation">
+            <ul class="pagination justify-content-center">
+              {% if cards.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="?{% url_replace request 'page' 1 %}" aria-label="First">
+                    <span aria-hidden="true">&laquo; First</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="?{% url_replace request 'page' cards.previous_page_number %}" aria-label="Previous">
+                    <span aria-hidden="true">Previous</span>
+                  </a>
+                </li>
+              {% else %}
+                <li class="page-item disabled">
+                  <span class="page-link">&laquo; First</span>
+                </li>
+                <li class="page-item disabled">
+                  <span class="page-link">Previous</span>
+                </li>
+              {% endif %}
+              {% for num in cards.paginator.page_range %}
+                {% if cards.number == num %}
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">{{ num }}</span>
+                  </li>
+                {% elif num > cards.number|add:'-3' and num < cards.number|add:'3' %}
+                  <li class="page-item">
+                    <a class="page-link" href="?{% url_replace request 'page' num %}">{{ num }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+              {% if cards.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="?{% url_replace request 'page' cards.next_page_number %}" aria-label="Next">
+                    <span aria-hidden="true">Next</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="?{% url_replace request 'page' cards.paginator.num_pages %}" aria-label="Last">
+                    <span aria-hidden="true">Last &raquo;</span>
+                  </a>
+                </li>
+              {% else %}
+                <li class="page-item disabled">
+                  <span class="page-link">Next</span>
+                </li>
+                <li class="page-item disabled">
+                  <span class="page-link">Last &raquo;</span>
+                </li>
+              {% endif %}
+            </ul>
+          </nav>
+        </div>
+      <!-- Modal started-->
+      <div class="modal fade" id="cardModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Results</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center" id="cardModalBody">
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block additional_scripts %}
+<script src="{% static 'js/cart.js' %}?v=1.1"></script>
+<script src="{% static 'js/buy.js' %}"></script>
+<script src="{% static 'js/balance.js' %}?v=1.1"></script>
+<script src="{% static 'js/search.js' %}?v=1.1"></script>
+{% endblock %}

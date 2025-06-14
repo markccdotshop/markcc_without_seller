@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}fullzhub | Latest Updates{% endblock %}
+{% block meta_description %}Latest cards upload, seller updates, and platform announcements.{% endblock %}
+{% block meta_keywords %}updates, announcements, fullzhub{% endblock %}
+{% block meta_author %}fullzhub System{% endblock %}
+
+{% block content %}
+<div class="update-wrapper">
+  <div class="header-bar">
+    <h1><i class="fa-solid fa-bolt"></i> Recent Updates</h1>
+    {% if request.user.is_superuser %}
+      <div class="maintenance-buttons">
+        <a href="{{ request.get_full_path }}maintenance-mode/on" class="btn-maintain on">Enable Maintenance</a>
+        <a href="{{ request.get_full_path }}maintenance-mode/off" class="btn-maintain off">Disable Maintenance</a>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="update-grid">
+    {% for date, updates in product_updates_grouped %}
+      {% for update in updates %}
+      <div class="update-card">
+        <div class="update-header">
+          <span class="update-date-badge">
+            <i class="fa-regular fa-calendar-days"></i> {{ date }}
+          </span>
+        </div>
+        <div class="update-body">
+          <h4>
+            <a href="{% url 'search' %}?seller={{ update.seller.id }}&base={{ update.id }}">{{ update.name }}</a>
+          </h4>
+          <p class="info-line">
+            Quality: <strong>{{ update.quality_indicator }}%</strong> &nbsp;|&nbsp;
+            Quantity: <strong>{{ update.uploaded_cards }}</strong>
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+
+  <!-- <div class="pagination-wrapper">
+    <ul class="pagination">
+      {% if product_updates_page.has_previous %}
+        <li><a href="?page=1">&laquo; First</a></li>
+        <li><a href="?page={{ product_updates_page.previous_page_number }}">Previous</a></li>
+      {% else %}
+        <li class="disabled">&laquo; First</li>
+        <li class="disabled">Previous</li>
+      {% endif %}
+
+      {% for num in product_updates_page.paginator.page_range %}
+        {% if product_updates_page.number == num %}
+          <li class="active">{{ num }}</li>
+        {% elif num > product_updates_page.number|add:'-3' and num < product_updates_page.number|add:'3' %}
+          <li><a href="?page={{ num }}">{{ num }}</a></li>
+        {% endif %}
+      {% endfor %}
+
+      {% if product_updates_page.has_next %}
+        <li><a href="?page={{ product_updates_page.next_page_number }}">Next</a></li>
+        <li><a href="?page={{ product_updates_page.paginator.num_pages }}">Last &raquo;</a></li>
+      {% else %}
+        <li class="disabled">Next</li>
+        <li class="disabled">Last &raquo;</li>
+      {% endif %}
+    </ul>
+  </div> -->
+</div>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'seller/seller_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Markcc|Deposit History{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+  <div class="order-history-main">
+    <!-- Order History Section -->
+    <section class="billing-page-history">
+      <div class="history-header">
+          <h2 class="section-heading">Deposit History:</h2>
+      </div>
+      <div class="history-content">
+          <div class="history-table-responsive table-responsive">
+                <table class="history-table">
+                  <thead class="text-center">
+                      <tr>
+                        <th scope="col" class="text-center">User</th>
+                        <th scope="col" class="text-center">Wallet</th>
+                        <th scope="col" class="text-center">Coin Type</th>
+                        <th scope="col" class="text-center">Crypto Amount</th>
+                        <th scope="col" class="text-center">Usd Amount</th>
+                        <th scope="col" class="text-center">Status</th>
+                        <th scope="col" class="text-center">Date</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+
+                    {% for address in received_address %}
+                    <tr>
+                        <td class="text-center">{{address.user}}</td>
+                        <td class="text-center">{{address.address}}</td>
+                        <td class="text-center">{{address.coin_symbol}}</td>
+                        <td class="text-center">{{address.crypto_amount}}</td>
+                        <td class="text-center">${{address.usd_amount|floatformat}}</td>
+                       {% if address.fund_status == True %}
+                        <td class="text-center">Received</td>
+                       {% endif %}
+                        <td class="text-center">{{address.received_date}}</td>
+                    </tr>
+                    {% endfor %}
+            
+            
+                </tbody>
+              </table>
+      </div>
+    </section>
+    <!-- Pagination -->
+    <nav aria-label="Orders page navigation" class="my-4">
+      <ul class="pagination justify-content-center">
+        {% if received_address.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page=1" aria-label="First">
+              <span aria-hidden="true">&laquo; First</span>
+            </a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="?page={{ received_address.previous_page_number }}" aria-label="Previous">
+              <span aria-hidden="true">Previous</span>
+            </a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <span class="page-link">&laquo; First</span>
+          </li>
+          <li class="page-item disabled">
+            <span class="page-link">Previous</span>
+          </li>
+        {% endif %}
+    
+        {% for num in received_address.paginator.page_range %}
+          {% if received_address.number == num %}
+            <li class="page-item active" aria-current="page">
+              <span class="page-link">{{ num }}</span>
+            </li>
+          {% elif num > received_address.number|add:'-3' and num < received_address.number|add:'3' %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+    
+        {% if received_address.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ received_address.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">Next</span>
+            </a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="?page={{ received_address.paginator.num_pages }}" aria-label="Last">
+              <span aria-hidden="true">Last &raquo;</span>
+            </a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <span class="page-link">Next</span>
+          </li>
+          <li class="page-item disabled">
+            <span class="page-link">Last &raquo;</span>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,142 @@
+.seller-page-container{
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(26, 28, 32, 0.85);
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+/* ========Dashboard============== */
+.dashboard {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.dashboard-header {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.dashboard-title {
+  color: #f9b934;
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.dashboard-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background: #1e1e1e63;
+  padding: 20px;
+  border-radius: 8px;
+  flex-basis: calc(33.333% - 20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  color: #fff;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card-value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.card-description {
+  font-size: 0.9rem;
+}
+
+.dashboard-table {
+  margin-top: 40px;
+  overflow-x: auto;
+}
+
+.dashboard-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #25282c; 
+  border-radius: 8px;
+  overflow: hidden; 
+}
+
+.dashboard-table th,
+.dashboard-table td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #333;
+  color: #ccc;
+}
+
+.dashboard-table th {
+  background: #1f2124; 
+  color: #fff; 
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.dashboard-table tr:last-child td {
+  border-bottom: none;
+}
+
+.dashboard-table tr:hover {
+  background-color: #2e3134; 
+}
+
+
+
+
+@media (max-width: 768px) {
+  .dashboard-table th,
+  .dashboard-table td {
+    padding: 10px;
+  }
+}
+
+
+/* =================== */
+
+
+
+.active-users-list {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.active-users-list .card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.active-users-list .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.active-users-list .card-title {
+  color: #007bff; 
+  font-weight: bold;
+}
+
+.active-users-list .card-text {
+  color: #6c757d;
+}

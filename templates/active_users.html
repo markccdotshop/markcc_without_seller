@@ -1,0 +1,26 @@
+{% extends 'seller/seller_base.html' %}
+{% load static %}
+{% block title %}Markcc|Seller Dashboard{% endblock %}
+{% block content %}
+<div class="container my-4">
+  <div class="seller-page-container">
+    <section class="dashboard">
+      <h2 class="text-center mb-4">Active Users</h2>
+      <div class="active-users-list">
+        <!-- Active users will be listed here -->
+        {% for user in active_users %}
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">{{ user.username }}</h5>
+              <p class="card-text">Last login: {{ user.last_login }}</p>
+            </div>
+          </div>
+        {% empty %}
+          <p>No active users at the moment.</p>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+

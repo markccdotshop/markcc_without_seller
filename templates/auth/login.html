@@ -1,0 +1,63 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>Markcc | Sign In</title>
+    <link type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link type="text/css" href="{% static 'css/login.css' %}" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="{% static 'css/images/hacking.gif' %}">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-content">
+            <h2 class="text-center">Sign In</h2>
+            <form action="" method="POST" id="login-form">
+                {% csrf_token %}
+                <p class="text-center">For your protection, please verify your identity.</p>
+                <div class="form-check text-center">
+                    {% if messages %}
+                            {% for message in messages %}
+                            <p class="{% if message.tags == 'error' %}text-danger{% elif message.tags == 'success' %}text-success{% endif %}">{{ message }}</p>
+                            {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                    <label for="username">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                    <label for="password">Password</label>
+                </div>
+                    <div class="input-group">
+                        {{ formcaptcha.captcha|add_class:'form-control form-control-sm bg-white bg-opacity-5' }}
+                        <button class="btn btn-outline-secondary js-captcha-refresh" type="button" id="button-captcha-refresh">
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </button>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-success mt-3 w-100">Sign In</button>
+                    </div>
+                    <div class="text-center">
+                        <a href="{% url 'register' %}">Don't have an account? Sign up</a>
+                    </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/auth/captcha.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#id_captcha_1').attr('placeholder', 'Enter captcha here');
+            var style = $('<style>::placeholder { color: lightgrey !important; }</style>');
+            $('head').append(style);
+        });
+        </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% block title %}fullzhub|FAQ{% endblock %}
+{% block meta_description %}{% endblock %}
+{% block meta_keywords %}{% endblock %}
+{% block meta_author %}fullzhub Team{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <div class="custom-faq">
+        <h1 class="text-center mb-4 text-primary-custom">Information Center & Usage Terms</h1>
+        <p class="text-center text-muted mb-5">Before adding balance, please read carefully.</p>
+
+        <!-- START: Full FAQ List -->
+
+        <div class="faq-item">
+            <div class="faq-question">Refund and Checker Policy Overview</div>
+            <div class="faq-answer">
+                <p>Our platform offers a comprehensive refund and checker policy...</p>
+                <ul>
+                    <li><b>Checker Price:</b> $0.50 for approved cards only.</li>
+                    <li><b>No Refund Policy:</b> Final sale, no refund.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What is the duration of the check time?</div>
+            <div class="faq-answer">
+                <p>The check time is <b>5 minutes</b>.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What are one-time cryptocurrency wallets?</div>
+            <div class="faq-answer">
+                <p>These generate a unique address for each transaction to protect privacy and prevent tracking.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What is the fee for top-ups using cryptocurrencies?</div>
+            <div class="faq-answer">
+                <p>A standard <b>10%</b> fee applies for crypto top-ups to cover blockchain operation costs.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is it possible to withdraw funds back to crypto wallet?</div>
+            <div class="faq-answer">
+                <p>Withdrawals are not supported. Deposits are final and can only be used within the platform.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Guidelines to Prevent Account Suspension or Ban</div>
+            <div class="faq-answer">
+                <ul>
+                    <li><b>No Cheating:</b> Will result in account closure.</li>
+                    <li><b>Follow Rules:</b> Illegal activity = termination.</li>
+                    <li><b>Inactive Users:</b> 6+ months inactive = suspension.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How to Search for and Purchase CVVs</div>
+            <div class="faq-answer">
+                <ul>
+                    <li><b>Bin:</b> Filter by first 6 digits.</li>
+                    <li><b>Country, State, City, Zip:</b> Use respective filters.</li>
+                    <li><b>Seller / Base:</b> Choose specific collections.</li>
+                </ul>
+                <p>After payment, visit the "Orders" page to manage cards.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Tips for Efficiently Utilizing Our Service</div>
+            <div class="faq-answer">
+                <ul>
+                    <li><b>Report Bugs:</b> Let us know via support.</li>
+                    <li><b>Suggestions:</b> We welcome ideas.</li>
+                    <li><b>Support Time:</b> Not 24/7, be patient.</li>
+                    <li><b>EU/US CC:</b> Avoid risky bins.</li>
+                    <li><b>Backup:</b> Keep copies of your cards.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- END: Full FAQ List -->
+    </div>
+</div>
+
+<style>
+    :root {
+        --primary-color: #0751e6;
+        --secondary-color: #4dd456;
+        --text-color: #333;
+    }
+
+    .text-primary-custom {
+        color: var(--primary-color);
+    }
+
+    .custom-faq {
+        max-width: 800px;
+        margin: auto;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .faq-item {
+        border-bottom: 1px solid #ddd;
+        padding: 15px 0;
+    }
+
+    .faq-question {
+        font-weight: 600;
+        cursor: pointer;
+        position: relative;
+        padding-right: 25px;
+        color: var(--primary-color);
+        transition: color 0.3s ease;
+    }
+
+    .faq-question:hover {
+        color: var(--secondary-color);
+    }
+
+    .faq-question::after {
+        content: '+';
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 20px;
+        color: var(--primary-color);
+        transition: transform 0.3s, color 0.3s;
+    }
+
+    .faq-item.active .faq-question::after {
+        content: '-';
+        color: var(--secondary-color);
+    }
+
+    .faq-answer {
+        display: none;
+        margin-top: 10px;
+        color: var(--text-color);
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .faq-item.active .faq-answer {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(-5px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.faq-question').forEach(function (q) {
+            q.addEventListener('click', function () {
+                const item = this.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+

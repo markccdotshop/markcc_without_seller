@@ -1,0 +1,168 @@
+{% extends 'seller/seller_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Markcc|Upload Address{% endblock %}
+
+{% block content %}
+
+<div class="container my-4">
+    <div class="billing-page-container">
+        <section class="create-ticket-section mb-4">
+            <div class="history-header">
+                <h2 class="section-heading">Upload Address</h2>
+                <div>
+                    {% if messages %}
+                            {% for message in messages %}
+                            <p class="{% if message.tags == 'error' %}alert alert-danger text-white text-center{% elif message.tags == 'success' %}text-success text-center{% endif %}">{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
+                </div>
+            </div> 
+            <div>
+                <form action="{% url 'upload_address' %}" method="POST">
+                    {% csrf_token %}
+                    
+                    <!-- Coin selection dropdown -->
+                    <div class="form-group">
+                        <label for="coin_name">Select Coin:</label>
+                        <select class="form-control" id="coin_name" name="coin_name">
+                            <option value="">None</option>
+                            <option value="BTC">Bitcoin</option>
+                            <option value="LTC">Litecoin</option>
+                            <option value="ETH">Ethereum</option>
+                            <option value="DOGE">Dogecoin</option>
+                            <option value="DASH">Dashcoin</option>
+                        </select>
+                    </div>
+                
+                    <!-- Bulk addresses input -->
+                    <div class="form-group">
+                        <label for="bulk_addresses">Addresses (one per line):</label>
+                        <textarea class="form-control" id="bulk_addresses" name="bulk_addresses" rows="5"></textarea>
+                    </div>
+                
+                    <!-- Submit button -->
+                    <div class="form-group text-center mt-4">
+                        <button type="submit" class="btn btn-outline-success" name="upload">Upload</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="billing-page-history">
+            <div class="history-header">
+                <h2 class="section-heading">Coin Address/List</h2>
+            </div>      
+            <div class="history-table-responsive table-responsive">
+                <table class="history-table">
+                    <thead class="text-center">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Uploaded By</th>
+                            <th scope="col">Coin Name</th>
+                            <th scope="col">Coin Address</th>
+                            <th scope="col">Assigned?</th>
+                            <th scope="col">Assigned To</th>
+                            <th scope="col">Uploaded At</th>
+                            <th scope="col">Assigned At</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                                {% for x in crypto_address %}
+                        <tr class="text-center">
+                            <td>{{ x.id }}</td>
+                            <td>{{ x.uploaded_by }}</td>
+                            <td>{{ x.coin_name }}</td>
+                            <td>{{ x.address }}</td>
+
+                            {% if x.address_status %}
+                            <td class="text-center text-success">Yes</td>
+                                {% else %}
+                            <td class="text-center text-danger">No</td>
+                            {% endif %}
+
+                            {% if  x.assigned_to%}
+                            <td class="text-center">{{x.assigned_to}}</td>
+                                {% else %}
+                            <td class="text-center text-danger">None</td>
+                            {% endif %}
+
+                            <td>{{ x.upload_date }}</td>
+
+                            {% if x.assigned_date%}
+                            <td class="text-center">{{x.assigned_date}}</td>
+                            {% else %}
+                            <td class="text-center text-danger">Not Yet</td>
+                            {% endif %}
+
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="9" class="text-danger text-center">No data found!</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+         <!-- Pagination -->
+    <nav aria-label="Orders page navigation" class="my-4">
+        <ul class="pagination justify-content-center">
+          {% if crypto_address.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page=1" aria-label="First">
+                <span aria-hidden="true">&laquo; First</span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="?page={{ crypto_address.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true">Previous</span>
+              </a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <span class="page-link">&laquo; First</span>
+            </li>
+            <li class="page-item disabled">
+              <span class="page-link">Previous</span>
+            </li>
+          {% endif %}
+      
+          {% for num in crypto_address.paginator.page_range %}
+            {% if crypto_address.number == num %}
+              <li class="page-item active" aria-current="page">
+                <span class="page-link">{{ num }}</span>
+              </li>
+            {% elif num > crypto_address.number|add:'-3' and num < crypto_address.number|add:'3' %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+      
+          {% if crypto_address.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ crypto_address.next_page_number }}" aria-label="Next">
+                <span aria-hidden="true">Next</span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="?page={{ crypto_address.paginator.num_pages }}" aria-label="Last">
+                <span aria-hidden="true">Last &raquo;</span>
+              </a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <span class="page-link">Next</span>
+            </li>
+            <li class="page-item disabled">
+              <span class="page-link">Last &raquo;</span>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+</div>
+{% endblock %}

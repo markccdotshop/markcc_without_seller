@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}fullzhub | Billing{% endblock %}
+{% block meta_description %}{% endblock %}
+{% block meta_keywords %}{% endblock %}
+{% block meta_author %}fullzhub Team{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="billing-page-container">
+        <!-- Notice Section -->
+        <div class="card notice-card border-0 shadow-sm mb-5">
+            <div class="card-header bg-primary py-3">
+                <h2 class="card-title mb-0 text-white">🔔 Add Balance Instructions</h2>
+            </div>
+            <div class="card-body bg-light">
+                <div class="mb-4">
+                    <h5 class="fw-semibold text-dark">📌 Unique Address Usage</h5>
+                    <p class="text-muted small">
+                        Each payment must be made to a unique wallet address. Reusing an address may result in payment failure.
+                        Our system provides a one-time wallet for each transaction to ensure maximum security and privacy.
+                    </p>
+                </div>
+                <div class="mb-4">
+                    <h5 class="fw-semibold text-dark">⏱️ Transaction Timing</h5>
+                    <p class="text-muted small">
+                        After making a payment, please allow <strong>10 minutes to 3 hours</strong> for your balance to be updated.
+                        Once the transaction is complete, you must click the <span class="badge bg-info text-dark">Check</span> button next to your transaction to fetch the funds.
+                    </p>
+                </div>
+                <p class="text-muted small mb-0">
+                    Need help? Contact our <a href="#" class="text-decoration-none text-primary fw-medium">support team</a>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Crypto Options -->
+        <div class="row g-3 mb-5 text-center justify-content-center">
+            <div class="col-md-2 col-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <img src="{% static 'css/images/btc.png' %}" alt="Bitcoin" class="mb-2" style="width:40px;">
+                        <h6 class="mb-2">BITCOIN</h6>
+                        <a href="{% url 'getaddress' 'btc' %}" class="btn btn-sm btn-warning">Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <img src="{% static 'css/images/ltc.png' %}" alt="Litecoin" class="mb-2" style="width:40px;">
+                        <h6 class="mb-2">LITECOIN</h6>
+                        <a href="{% url 'getaddress' 'ltc' %}" class="btn btn-sm btn-warning">Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <img src="{% static 'css/images/eth.png' %}" alt="Ethereum" class="mb-2" style="width:40px;">
+                        <h6 class="mb-2">ETHEREUM</h6>
+                        <a href="{% url 'getaddress' 'eth' %}" class="btn btn-sm btn-warning">Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <img src="{% static 'css/images/doge.png' %}" alt="Dogecoin" class="mb-2" style="width:40px;">
+                        <h6 class="mb-2">DOGECOIN</h6>
+                        <a href="{% url 'getaddress' 'doge' %}" class="btn btn-sm btn-warning">Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <img src="{% static 'css/images/dash.png' %}" alt="Dash" class="mb-2" style="width:40px;">
+                        <h6 class="mb-2">DASH</h6>
+                        <a href="{% url 'getaddress' 'dash' %}" class="btn btn-sm btn-warning">Add</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Section -->
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="section-heading text-primary text-center mb-4">Transaction History</h2>
+
+                <div>
+                    <div class="message-container"></div>
+                {% if messages %}
+                    <div class="message-container text-center">
+                        {% for message in messages %}
+                            <p class="{% if message.tags == 'error' %}text-danger{% elif message.tags == 'success' %}text-success{% endif %}">{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                </div>
+
+                <div class="table-responsive">
+                    <form method="POST" class="history-form">
+                        {% csrf_token %}
+                        <table class="table table-bordered text-center">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Wallet</th>
+                                    <th>Coin</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for address in billing_address %}
+                                <tr>
+                                    <td class="coin-address small">{{ address.address }}</td>
+                                    <td>{{ address.coin_symbol|upper }}</td>
+                                    <td>${{ address.usd_amount|floatformat:2|default:"0.00" }}</td>
+                                    <td>{{ address.received_date|default:"Not Yet" }}</td>
+                                    <td data-label="Status">
+                                        {% if address.fund_status %}
+                                            <span class="status-received">Received</span>
+                                        {% else %}
+                                            <button type="button" name="check_balance" class="btn-status-check btn btn-sm btn-outline-primary" data-billing-id="{{ address.id }}">Check</button>
+                                        {% endif %}
+                                    </td>
+                                    
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="5">No billing history available.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block additional_scripts %}
+<script src="{% static 'js/checkbalance.js' %}"></script>
+{% endblock %}

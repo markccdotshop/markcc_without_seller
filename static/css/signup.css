@@ -1,0 +1,80 @@
+html, body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../css/images/hacking.gif') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+  max-width: 400px; 
+  margin: auto; 
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.75); 
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.signup-container .form-control {
+  background-color: transparent !important;
+  color: #cccccc !important;
+  border: 1px solid #444 !important;
+}
+
+.signup-container .form-label {
+  color: #cccccc !important; 
+}
+
+
+.form-floating {
+  color: #cccccc !important;
+}
+
+.signup-content {
+  width: 100%; 
+  text-align: center; 
+}
+.signup-content h2 {
+  color: #cccccc;
+}
+.signup-content p {
+  color: #FAB005;
+}
+.sign-up, a {
+  color: #FAB005 !important;
+  text-decoration: none !important;
+}
+.sign-up, a:hover{
+  color: #198754 !important;
+}
+
+.js-captcha-refresh {
+  background-color: transparent !important; 
+  border: none; 
+  padding: 0; 
+  cursor: pointer;
+}
+
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.error-message {
+  font-size: 0.875em;
+  color: #dc3545;
+  margin-top: 0.25rem;
+}
+
+

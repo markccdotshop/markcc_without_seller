@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static%}
+
+{% block title %}Seller Dashboard{% endblock %}
+
+<!-- Block for additional styles -->
+{% block additional_styles %}
+
+<link href="{% static 'css/seller.css'%}" rel="stylesheet" />
+
+{% endblock %}
+
+{% block header %}
+    <header>
+        <!-- Seller Navigation Bar -->
+        {% include 'includes/seller-nav.html' %}
+    </header>
+{% endblock header %}
+
+{% block content %}
+    <!-- leave this block empty to be defined by templates that extend seller_base.html -->
+{% endblock content %}

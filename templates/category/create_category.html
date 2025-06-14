@@ -1,0 +1,288 @@
+{% extends 'seller/seller_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Markcc|Create/View Bases{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="billing-page-container">
+        <!-- Create Bases Section -->
+        <section class="create-ticket-section">
+            <h2 class="mb-4 text-center">Create Base</h2>
+            <div class="search-filter">
+                <form id="createCategoryForm" method="POST" action="{% url 'create_view_category' %}">
+                    {% csrf_token %}
+                    <div class="row mb-3">
+                        <!-- Category Name -->
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.category_name.id_for_label }}" class="form-label">Base Name</label>
+                            {{ form.category_name }}
+                            {% if form.category_name.errors %}
+                                <div class="alert alert-danger mt-2">{{ form.category_name.errors.as_text }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Category Ratio -->
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.category_ratio.id_for_label }}" class="form-label">Base Ratio/validity</label>
+                            {{ form.category_ratio }}
+                            {% if form.category_ratio.errors %}
+                                <div class="alert alert-danger mt-2">{{ form.category_ratio.errors.as_text }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success">Create Base</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- View Bases Section -->
+        <section class="billing-page-history">
+            <div class="history-header">
+                <h2 class="section-heading">Category/Base Lists</h2>
+                <div>
+                    {% if messages %}
+                            {% for message in messages %}
+                            <p class="{% if message.tags == 'error' %}alert alert-danger text-white text-center{% elif message.tags == 'success' %}text-success text-center{% endif %}">{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
+                </div>
+            </div>
+            <div class="history-table-responsive table-responsive">
+                <table class="history-table">
+                    <thead class="text-center">
+                        <tr>
+                            <th scope="col">#</th>
+                            <!-- <th scope="col">Seller</th> -->
+                            <th scope="col">Base Name</th>
+                            <th scope="col">Base Validity</th>
+                            <th scope="col">Uploaded</th>
+                            <th scope="col">Available</th>
+                            <th scope="col">Sold</th>
+                            <th scope="col">Deleted</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Created Date</th>
+                            <th scope="col">Published Date</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for base in category_list %}
+                        <tr class="text-center">
+                            <td>{{ forloop.revcounter }}</td>
+                            <!-- <td>{{ base.seller }}</td> -->
+                            <td>{{ base.name }}</td>
+                            <td>{{ base.quality_indicator }}%</td>
+                            <td>{{ base.cards_available }}</td>
+                            <td>{{ base.uploaded_cards }}</td>
+                            <td>{{ base.sold_cards }}</td>
+                            <td>{{ base.deleted_cards }}</td>
+                            {% if base.category_status == 'published' and not base.active %}
+                                <td>
+                                    <span class="badge bg-warning text-dark">Waiting for Admin Approval</span>
+                                </td>
+                            {% elif base.category_status == 'published' and base.active %}
+                                <td>
+                                    <a href="{% url 'unpublish_category' base.id %}" class="btn btn-sm btn-outline-success">Published</a>
+                                </td>
+                            {% else %}
+                                <td>
+                                    <a href="{% url 'publish_category' base.id %}" class="btn btn-sm btn-outline-warning">Unpublished</a>
+                                </td>
+                            {% endif %}
+
+                            <td>{{ base.created_date }}</td>
+                            <td>{{ base.published_date|default:"N/A" }}</td>
+                            <td class="text-center">
+                                    <div class="btn-group" role="group" aria-label="Base Actions">
+                                        <button type="button" class="btn btn-outline-warning btn-sm" data-bs-toggle="modal" data-bs-target="#uploadCardsModal" data-base-id="{{ base.id }}" title="Upload Cards">
+                                            Upload
+                                        </button>
+                                        <button type="button" class="btn btn-outline-success btn-sm" data-base-id="{{ base.id }}" title="Edit Base">
+                                            Edit
+                                        </button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm delete-btn" data-base-id="{{ base.id }}" title="Delete Base">
+                                            Delete
+                                        </button>
+                                    </div>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="8" class="text-center">No bases found.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- Upload Cards Modal -->
+        <div class="modal fade" id="uploadCardsModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="uploadCardsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark text-white">
+                        <h5 class="modal-title" id="uploadCardsModalLabel">Upload Cards</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card mb-3">
+                            <div class="card-header text-center bg-dark text-white">
+                                <h3>Upload Cards</h3>
+                                <p class="text-danger text-center">Follow the format to insert card into database</p>
+                            <p class="text-danger text-center">Format must be looks like below</p>
+                            <h5 class="text-center mb-4">card_number|month|year|cvv|name|address|city|state|zip|phone|country|etc|etc|etc:::</h5>
+                            <p class="text-danger text-center">NB:: leave blank if you don't have value for the specific field eg:||</p>
+                            </div>
+                            <div class="card-body">
+                                <form id="uploadForm" method="POST" action="{% url 'upload_cards' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" id="baseIdField" name="base" value="">
+                                    <div class="row mb-3">
+                                        <div class="col-lg-6 mb-3">
+                                                <h5 class="text-secondary mb-3">Refund Policy</h5>
+                                                <div class="mb-3">
+                                                    {% for choice in upload_card_form.refund %}
+                                                        <div class="form-check form-check-inline">
+                                                            {{ choice.tag }}
+                                                            <label class="form-check-label" for="{{ choice.id_for_label }}">{{ choice.choice_label }}</label>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                        </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <h5 class="text-secondary mb-3">Price per piece</h5>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="input-group">
+                                                        <span class="input-group-text">$ US</span>
+                                                            {{ upload_card_form.usprice|add_class:'form-select' }}
+                                                            {% if upload_card_form.usprice.errors %}
+                                                                <div class="alert alert-danger mt-2">{{ upload_card_form.usprice.errors.as_text }}</div>
+                                                            {% endif %}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="input-group">
+                                                        <span class="input-group-text">$ Non-US</span>
+                                                        {{ upload_card_form.nonusprice|add_class:'form-select' }}
+                                                            {% if upload_card_form.nonusprice.errors %}
+                                                                <div class="alert alert-danger mt-2">{{ upload_card_form.nonusprice.errors.as_text }}</div>
+                                                            {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                                    
+                
+                                    <h5 class="text-secondary mb-3">Card Details</h5>
+                                    <div class="mb-3">
+                                    
+                                        {{ upload_card_form.cards }}
+                                            {% if form.category_ratio.errors %}
+                                                <div class="alert alert-danger mt-2">{{ form.category_ratio.errors.as_text }}</div>
+                                            {% endif %}
+                                        
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary" name="upload">Upload</button>
+                                    </div>
+                                </form>
+                                <div id="progressBarContainer" class="mt-4 text-center" style="display:none;">
+                                <div class="progress">
+                                    <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p id="progressText" class="mt-2" style="display:none;">0% Complete</p>
+                            </div>
+                            <div id="messageContainer" class="mt-4 text-center"></div>
+                            <div id="showResultsButtons" class="mt-4 text-center" style="display:none;">
+                                <button id="showDuplicates" class="btn btn-warning" style="display:none;">Show Duplicates</button>
+                                <button id="showErrors" class="btn btn-danger" style="display:none;">Show Errors</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for displaying errors and duplicates -->
+        <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="resultsModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                        <button type="button" class="btn btn-primary" id="copyResults">Copy Results</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body bg-red text-dark">
+                        <div id="modalContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Delete Base Modal -->
+        <div class="modal fade" id="deleteBaseModal" tabindex="-1" aria-labelledby="deleteBaseModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Delete Base</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-danger">
+                        WARNING: Deleting this base will also permanently remove all CVVs uploaded under it. Are you sure you want to proceed?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <form method="POST" action="" id="deleteBaseForm">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+{% block additional_scripts %}
+<script src="{% static 'js/seller/dataUpload.js' %}"></script>
+<script>
+
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    
+    // Add click event to each delete button
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const baseId = this.getAttribute('data-base-id');
+            const deleteForm = document.getElementById('deleteBaseForm');
+            
+            // Set the form action
+            deleteForm.action = `{% url 'delete_base' 0 %}`.replace('/0/', `/${baseId}/`);
+            
+            // Show the modal
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteBaseModal'));
+            deleteModal.show();
+        });
+    });
+</script>
+<script>
+        const uploadButtons = document.querySelectorAll('.btn-outline-warning');
+    
+        uploadButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const baseId = this.getAttribute('data-base-id');
+                const baseIdField = document.getElementById('baseIdField');
+                baseIdField.value = baseId;
+            });
+        });
+</script>
+{% endblock %}

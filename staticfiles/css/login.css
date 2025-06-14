@@ -1,0 +1,62 @@
+html, body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../css/images/hacking.gif') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+  max-width: 400px; 
+  margin: auto; 
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.75); 
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.login-container .form-control {
+  background-color: transparent !important;
+  color: #cccccc !important;
+  border: 1px solid #444 !important;
+}
+
+.login-container .form-label {
+  color: #cccccc !important; 
+}
+
+
+.form-floating {
+  color: #cccccc !important;
+}
+
+.login-content {
+  width: 100%; 
+  text-align: center; 
+}
+.login-content h2 {
+  color: #cccccc;
+}
+.login-content p {
+  color: #FAB005;
+}
+.sign-up, a {
+  color: #FAB005 !important;
+  text-decoration: none !important;
+}
+.sign-up, a:hover{
+  color: #198754 !important;
+}
+
+
