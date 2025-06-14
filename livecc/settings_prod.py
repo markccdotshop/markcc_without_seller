@@ -1,8 +1,8 @@
 from .settings import *
 
 # Production-specific settings
-DEBUG=False
-ALLOWED_HOSTS = ['markcc.shop','www.markcc.shop','markcc.cc','www.markcc.cc','localhost']
+DEBUG=True
+ALLOWED_HOSTS = ['fullzhub.cc','fullzhub.cc','localhost']
 SECRET_KEY='25^l5j0a(!o6am^-$6y_tnluht0n-3z=zpemm%=&(=95o%)h6o'
 
 
