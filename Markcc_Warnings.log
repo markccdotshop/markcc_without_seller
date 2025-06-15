@@ -29,3 +29,152 @@ Traceback (most recent call last):
 FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/xp/dx2v4z0j6mq0qzm3jfry7j380000gn/T/tmpe8_0d88c'
 WARNING 2025-06-15 08:31:27 log 88778 6222589952 Method Not Allowed (GET): /nepal/bininfo/bin/process_import/
 WARNING 2025-06-15 08:31:29 log 88778 6222589952 Method Not Allowed (GET): /nepal/bininfo/bin/process_import/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/aa54123a-be85-4c4c-bc0f-d081b94fbbcf/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/06484dd1-e802-4d3e-b6b5-909532b95457/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/bb18a69b-a056-4dbd-a505-cb9a5be5474a/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/eed603df-0ecb-490c-807e-13c7cbbe0423/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/0c2403d3-0599-46cd-ac7e-502aa4f215c3/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/c2e6b36b-751b-4f29-bd59-8e212dcd0df8/
+WARNING 2025-06-15 14:59:42 log 9682 6252589056 Too Many Requests: /seller/categories/celery-progress/cba8a4fe-a2be-4c4b-b5cf-e95bc400c102/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/9f67c3ee-7b3e-4630-a902-fd06072f2d8c/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/79385769-fabd-424c-8a02-2406e94075d8/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/9add4901-cd8a-4cca-b3ed-26595985a8d7/
+WARNING 2025-06-15 14:59:42 log 9682 6269415424 Too Many Requests: /seller/categories/celery-progress/5740726d-abf4-41ff-85f5-6516fb3e4b28/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/d6abfbb5-c1c5-437b-80c3-6c2dab9a7967/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/d656a2ab-ad7d-442f-922a-0de9d226e846/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/4e3a918d-43d9-49c4-9857-8b5a5685088b/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/c63a567b-a3ad-4443-b650-a52cbbfc47dc/
+WARNING 2025-06-15 14:59:42 log 9682 6252589056 Too Many Requests: /seller/categories/celery-progress/43794a22-faf7-4dab-99b3-3ecfbc4d629c/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/052d959f-c153-406e-a8bb-5b51f1172fac/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/668a1846-95e3-47ce-8210-d5c881c5de21/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/8e4fe9c4-5f0d-461c-971a-859e5b6e1ca2/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/0f39fc9c-d9f9-4b91-bf6f-dee3e7513f98/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/63bdf1fc-5e8e-4e29-b87c-a7457ae48dfd/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/fa26812b-94dc-4c71-8c8e-203be1b413cf/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/1fb62bf2-2e90-4f64-a2da-4d1724f31b30/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/f0f2a102-c38e-4d96-b78a-4ff42e7ef48a/
+WARNING 2025-06-15 14:59:42 log 9682 6252589056 Too Many Requests: /seller/categories/celery-progress/be839cba-2642-41f3-9932-7916a199a2b7/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/d39bb4d2-11b6-4e72-80f5-cbecd067381b/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/1c9a8131-28c2-4872-9a53-547ff800b435/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/01023b6a-6a9f-4163-9ab4-3808d7e7a161/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/abef761b-96e2-4883-8393-d801a0b04433/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/f945b81d-4819-4e46-b4ff-d4a285b22d3e/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/b37afc63-6dcc-4a9a-8e75-bc14a7b94136/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/0c776fc5-a0ba-4def-bbcd-31e2a2e76ca1/
+WARNING 2025-06-15 14:59:42 log 9682 6252589056 Too Many Requests: /seller/categories/celery-progress/fce4df0e-27f3-4e4c-8767-e0951753a0d8/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/99adad45-95ad-467b-97e6-a3293959a36d/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/d00acafe-c539-455f-9910-8693266608d9/
+WARNING 2025-06-15 14:59:42 log 9682 6269415424 Too Many Requests: /seller/categories/celery-progress/0bb6ab23-894c-4915-8916-d5e89aa12fc7/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/f26afe08-6b3c-49cd-befa-0bc14a09266e/
+WARNING 2025-06-15 14:59:42 log 9682 6286241792 Too Many Requests: /seller/categories/celery-progress/d24cf485-5673-44b5-8477-75ba711b93ce/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/5235a010-c4f1-4c2e-bdd4-87d26fd3c59f/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/bbd0fcf0-12c1-41c8-9a69-955b810fcc75/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/f5518bdf-c210-4601-894b-cd4108999b60/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/543189af-7b9f-414c-bc94-feef90ec8dde/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/27afe907-fc5e-4d84-8e9a-cb5270a6a23f/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/890af684-40eb-419d-82fa-c44a0f598859/
+WARNING 2025-06-15 14:59:42 log 9682 6252589056 Too Many Requests: /seller/categories/celery-progress/a43d9984-ba8e-4287-85ea-964ed857d65e/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/ba368447-64bd-49af-bd76-24511943f06a/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/be21f44b-cd20-4992-8f13-fc3c910117ca/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/94401e16-3335-40f2-b178-67e1eacfb8d0/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/715aa282-2439-497c-9135-7105ec55155a/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/de124c04-44fd-44e8-9169-d9a5bfa11560/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/0cff4ce9-60fb-47c1-8193-f3097bca12b5/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/0bc9fbe8-fdf7-449d-a17e-802f2d109476/
+WARNING 2025-06-15 14:59:42 log 9682 6252589056 Too Many Requests: /seller/categories/celery-progress/645f0446-cf33-4a04-a311-9ebf05ba6588/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/8fa572b7-2b6a-47ce-9a32-6eeb6a13a112/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/2dda3862-387c-4a08-b4ea-11082b4c6517/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/0b08cca1-289b-45e1-b25c-15bf805c293c/
+WARNING 2025-06-15 14:59:42 log 9682 6269415424 Too Many Requests: /seller/categories/celery-progress/30965c16-957e-4670-abd1-8c021cf44c63/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/d9e89e58-79e6-4cc3-837a-ca52c6ad6ebb/
+WARNING 2025-06-15 14:59:42 log 9682 6252589056 Too Many Requests: /seller/categories/celery-progress/4858d5df-6d17-4674-88d3-dd80de741d67/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/f9a48fc3-5a3d-41ec-8a13-4cbc3b5cacf2/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/1415b0ec-c86b-4859-9fa6-10663d5737fd/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/155ccc31-b2e5-473d-9c64-8632273da28b/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/3e40fb3c-59f2-419b-83b8-5fc3ece6f714/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/162c3243-eba4-4c53-a691-659a08cf75cc/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/3f119536-ab33-4c9e-b768-e38446802a6d/
+WARNING 2025-06-15 14:59:42 log 9682 6252589056 Too Many Requests: /seller/categories/celery-progress/8a4ca014-c688-44cf-ae35-50343c342709/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/807a022b-85e6-4ea8-8bb0-1474a453004b/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/9c543b7b-9535-4821-b220-fb27a64eabd9/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/0fcfcb79-a04e-4180-89bc-88b899c5d591/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/ad7133bf-8f5a-4d51-9eb1-500176d96552/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/e78541ea-c6d0-436c-aa5b-cfb996a92840/
+WARNING 2025-06-15 14:59:42 log 9682 6252589056 Too Many Requests: /seller/categories/celery-progress/468bac36-120d-4010-9816-3e72c822053a/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/cf07e9c3-7faf-4e99-b381-25820e33b9e5/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/50159459-fd67-4e75-820c-ff8d373faf82/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/f5532340-a757-48fc-87cc-6c534359972b/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/ba99cf15-bf20-4d35-988e-1d6254680abe/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/91a12b3a-0d44-47c6-bb48-343412d68552/
+WARNING 2025-06-15 14:59:42 log 9682 6252589056 Too Many Requests: /seller/categories/celery-progress/396eae80-98f8-45d0-8db0-c0121da71059/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/6b9b88e4-195e-42be-a8cd-06f4843b8052/
+WARNING 2025-06-15 14:59:42 log 9682 6269415424 Too Many Requests: /seller/categories/celery-progress/b0f6c8b1-30f1-4df9-888a-4c49d1644d52/
+WARNING 2025-06-15 14:59:42 log 9682 6286241792 Too Many Requests: /seller/categories/celery-progress/8411d11a-9a18-4e71-b07f-b064d1e51294/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/83d3dcf6-0436-43f5-b9d3-b1bc9cc73148/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/c1ffb5a4-3353-48fa-8ed4-6e0bdae255dc/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/803b80d9-4338-4e9c-b072-74c1ffd2ba11/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/73937681-b573-4f2d-b025-bef5bdb91a47/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/c8cc852e-25db-42a8-832c-225b5d0b68f7/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/17608c39-f7b8-4b55-8aa8-6cda7cacb893/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/5f6693c7-85f1-4fe1-bc44-517a807cb504/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/59177e51-60fc-442b-a542-cac1049a0263/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/f21f6879-5933-4a82-8cfe-fba0c8aebded/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/fedeb528-4dab-4ee8-869c-d436bf976101/
+WARNING 2025-06-15 14:59:42 log 9682 6252589056 Too Many Requests: /seller/categories/celery-progress/4b09a2f7-455d-4394-802d-73b6c6688aa2/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/d541df4a-6328-4a4d-820f-c7734b48f930/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/cbed2f5a-8e3f-4e8b-b22d-24ab18964abe/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/26b523f5-be26-4e49-9c23-fac78e117a06/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/0933334b-c6fc-4563-98f5-19cd725a2324/
+WARNING 2025-06-15 14:59:42 log 9682 6235762688 Too Many Requests: /seller/categories/celery-progress/042a201f-079a-49d4-8fc5-607d9a52bf67/
+WARNING 2025-06-15 14:59:42 log 9682 6252589056 Too Many Requests: /seller/categories/celery-progress/a9a0090d-b4d7-4b7f-999a-51e19844fe24/
+WARNING 2025-06-15 14:59:42 log 9682 6218936320 Too Many Requests: /seller/categories/celery-progress/53ac3c1c-76d5-46da-ad20-039321331bdf/
+WARNING 2025-06-15 14:59:42 log 9682 6168457216 Too Many Requests: /seller/categories/celery-progress/35efe648-931d-41e6-a80a-ea80c06b5a74/
+WARNING 2025-06-15 14:59:42 log 9682 6202109952 Too Many Requests: /seller/categories/celery-progress/96ed7456-1726-4655-8348-9b1b8854f2ea/
+WARNING 2025-06-15 14:59:42 log 9682 6185283584 Too Many Requests: /seller/categories/celery-progress/8cf7f261-f2a4-405a-9193-bb2094f10023/
+WARNING 2025-06-15 14:59:51 log 9682 6168457216 Too Many Requests: /seller/categories/create/view/
+WARNING 2025-06-15 14:59:55 log 9682 6168457216 Too Many Requests: /seller/categories/create/view/
+WARNING 2025-06-15 14:59:56 log 9682 6185283584 Too Many Requests: /seller/categories/create/view/
+WARNING 2025-06-15 15:07:17 log 9682 6168457216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:08:21 log 9682 6235762688 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:09:22 log 9682 6168457216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:34:58 log 9682 6168457216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:35:54 log 9682 6168457216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:37:13 log 9682 6168457216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:37:39 log 9682 6168457216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:38:11 log 9682 6185283584 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:38:31 log 9682 6168457216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:39:23 log 9682 6168457216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:39:27 log 9682 6185283584 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:39:31 log 9682 6168457216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:39:58 log 9682 6168457216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:40:00 log 9682 6168457216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:43:41 log 9682 6168457216 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:57:27 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:58:13 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 15:58:25 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:03:08 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:04:46 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:04:48 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:04:49 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:04:50 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:04:50 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:05:07 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:05:08 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:05:08 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:05:14 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:06:03 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:06:05 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:06:24 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:06:25 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:07:56 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:07:57 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:07:58 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:07:58 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:07:59 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:08:10 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:08:29 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:08:30 log 9682 6184710144 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:08:31 log 9682 6184710144 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:08:54 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:10:38 log 9682 6184710144 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-06-15 16:10:58 log 9682 6167883776 Not Found: /.well-known/appspecific/com.chrome.devtools.json

@@ -34,7 +34,7 @@
                       <tr>
                           <td>#2025{{ order.id }}</td>
                           <td class="card-data">{{ order.card_data }}</td>
-                          <td data-label="Seller/Base"><small>{{ order.category }}</small></td>
+                          <td data-label="Base"><small>{{ order.category }}</small></td>
                           <td data-label="Status">
                             {% if order.status == "1" %} 
                               <button type="button" class="btn-status-check CheckButton" data-card-id="{{ order.id }}">Check</button>
@@ -42,7 +42,7 @@
                               {{ order.get_status_display }}
                             {% endif %}
                           </td>
-                          <td data-label="Order Date">{{ order.order_placed_at|hours_since }}</td>
+                          <td data-label="Time">{{ order.order_placed_at|hours_since }}</td>
                       </tr>
                       {% empty %}
                       <tr>

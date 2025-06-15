@@ -114,13 +114,17 @@
   }
   .card-data, .coin-address{
     background:  #141517;
+    color: white !important;
     text-align: center !important;
     font-size: small;
   }
   .cart-page-container {
     max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
+    margin: 0px auto;
+    padding: 0px;
+  }
+  .cart-table table tbody tr td:first-child{
+    color: white !important;
   }
   #footer {
     padding: 20px 15px;

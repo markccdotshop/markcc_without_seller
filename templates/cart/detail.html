@@ -41,10 +41,22 @@
                   <tr class="cart-item" data-card-id="{{ item.credit_card.id }}">
                     <td data-label="Bin">{{ item.credit_card.card_bin }}<br><small>{{ item.credit_card.card_brand }}/{{ item.credit_card.card_type }}<br>{{ item.credit_card.card_level }}</small></td>
                     <td data-label="Exp">{{ item.credit_card.card_expiry_month }}/{{ item.credit_card.card_expiry_year }}</td>
-                    <!-- <td data-label="Name">{{ item.credit_card.card_holder_name|slice:":5" }}******</td> -->
                     <td data-label="City/State/Zip">{{ item.credit_card.card_city }}<br><small>{{ item.credit_card.card_state }} <br>{{ item.credit_card.card_zip_code }} </small></td>
                     <td data-label="Country/Bank">{{ item.credit_card.card_country }}<br><small>{{ item.credit_card.card_bank }}</small></td>
-                    <td data-label="Refund">{{ item.credit_card.get_card_refund_status_display }}</td>
+                    <td data-label="Refund">
+                      {% if item.credit_card.card_refund_status == 1 %}
+                        <span class="text-success fw-bold">
+                          <i class="bi bi-check-circle-fill me-1"></i> Refundable
+                        </span>
+                      {% elif item.credit_card.card_refund_status == 7 %}
+                        <span class="text-danger fw-bold">
+                          <i class="bi bi-x-circle-fill me-1"></i> No Refund
+                        </span>
+                      {% else %}
+                        <small class="text-danger">Unknown</small>
+                      {% endif %}
+                    </td>
+                    
                     <td data-label="Base"><small>{{ item.credit_card.card_base}}</small></td>
                     <td data-label="Price">{{ item.credit_card.card_price }}</td>
                     <td data-label="Action">
