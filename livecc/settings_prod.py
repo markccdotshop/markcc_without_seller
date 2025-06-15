@@ -1,7 +1,7 @@
 from .settings import *
 
 # Production-specific settings
-DEBUG=True
+DEBUG=False
 ALLOWED_HOSTS = ['fullzhub.cc','fullzhub.cc','localhost']
 SECRET_KEY='25^l5j0a(!o6am^-$6y_tnluht0n-3z=zpemm%=&(=95o%)h6o'
 

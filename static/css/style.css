@@ -1,3 +1,32 @@
+/* ================= Base Layout Structure ================= */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f8f9fa;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main, #content {
+  flex: 1;
+}
+
+/* Ensure content inside content area has padding */
+#content {
+  padding: 20px;
+}
+/* ================= UTILITY ================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
 /* ================= NAVBAR THEME ================= */
 .custom-navbar {
   background-color: #ffffff;
@@ -806,30 +835,6 @@ td small {
   background-color: #9ea8b1;
   color: #ffffff;
 }
-/* =======================Footer Styles============================== */
-.custom-footer {
-  background-color: #0751e6;
-  color: #ffffff;
-  font-size: 0.95rem;
-  border-top: 4px solid #4dd456;
-  position: relative;
-  width: 100%;
-  margin-top: 40px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.custom-footer p {
-  margin: 0;
-  padding: 10px 0;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-}
-
-.custom-footer strong {
-  color: #4dd456;
-}
-
-
 
 /* =====Pagination======= */
 
@@ -879,3 +884,29 @@ td small {
     border-color: #dee2e6;
     cursor: not-allowed;
 }
+
+/* =======================Footer Styles============================== */
+/* ================= FOOTER ================= */
+.custom-footer {
+  background-color: #0751e6;
+  color: #ffffff;
+  font-size: 0.95rem;
+  border-top: 4px solid #4dd456;
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  margin-top: auto; /* Pushes footer to bottom if content is short */
+}
+
+.custom-footer p {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.custom-footer strong {
+  color: #4dd456;
+}
+
