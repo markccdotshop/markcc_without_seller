@@ -106,10 +106,10 @@
                             <tbody>
                                 {% for address in billing_address %}
                                 <tr>
-                                    <td class="coin-address small">{{ address.address }}</td>
-                                    <td>{{ address.coin_symbol|upper }}</td>
-                                    <td>${{ address.usd_amount|floatformat:2|default:"0.00" }}</td>
-                                    <td>{{ address.received_date|default:"Not Yet" }}</td>
+                                    <td data-label="Address" class="coin-address small">{{ address.address }}</td>
+                                    <td data-label="Coin">{{ address.coin_symbol|upper }}</td>
+                                    <td data-label="Amount">${{ address.usd_amount|floatformat:2|default:"0.00" }}</td>
+                                    <td data-label="Date">{{ address.received_date|default:"Not Yet" }}</td>
                                     <td data-label="Status">
                                         {% if address.fund_status %}
                                             <span class="status-received">Received</span>

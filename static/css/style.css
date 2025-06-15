@@ -358,28 +358,6 @@ main, #content {
 }
 
 /*====================== Cvv Page Styles (Light & Fresh) ======================*/
-.cvv-page-container .accordion-item {
-  background: #f9fbff; /* very light blue */
-  border: 1px solid #d0d8e8;
-  border-radius: 8px;
-  margin-bottom: 12px;
-}
-
-.cvv-page-container .accordion-button {
-  background: #e9f1fb; /* light blue */
-  color: #2c3e50; /* dark blue-gray */
-  border: none;
-  font-weight: 600;
-  border-radius: 8px;
-  box-shadow: none;
-  transition: background-color 0.3s ease;
-}
-
-.cvv-page-container .accordion-button:not(.collapsed) {
-  background-color: #d6e9fb; /* slightly deeper blue */
-  color: #1a2738;
-}
-
 .cvv-page-container .form-control {
   background-color: #fff;
   color: #2c3e50;
@@ -443,21 +421,6 @@ main, #content {
 }
 
 
-/* Filter section */
-.search-filter {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-/*  max-width: 1200px;*/
-  margin: 30px auto 40px;
-  padding: 30px 35px;
-}
-.search-filter h3 {
-  color: #34495e;
-  font-weight: 700;
-  font-size: 1.75rem;
-}
-
 /* Labels */
 .form-label {
   font-weight: 600;
@@ -468,6 +431,35 @@ main, #content {
 td small {
   color: #6c757d;
   font-size: 0.8rem;
+}
+
+
+.search-section {
+  margin: 0px auto;
+}
+
+.card.filter-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.card.filter-card .card-header {
+  background-color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.card.filter-card .form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.card.filter-card .btn {
+  min-width: 120px;
+  font-weight: bold;
 }
 
 
@@ -545,11 +537,7 @@ td small {
     font-size: 0.9rem;
 }
 
-.coin-address {
-    font-size: 0.85rem;
-    word-break: break-all;
-    max-width: 180px;
-}
+
 
 /* Status Buttons */
 .btn-status-check {
@@ -941,4 +929,5 @@ td small {
 .custom-footer strong {
   color: #4dd456;
 }
+
 

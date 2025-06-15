@@ -14,82 +14,89 @@
     <div class="col-md-12">
       <div class="cvv-page-container page-container">
         <section class="search-section">
-          <div class="search-filter">
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item bg-transparent">
-                  <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button bg-light shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                      <i class="bi bi-search me-2"></i> Advanced Card Filter
-                    </button>
-                  </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <form class="row g-3" action="{% url 'search' %}" method="GET">
-                       
-                        <!-- Base Selection -->
-                        <div class="form-group col-md-2 col-3 col-lg-2">
-                          <label for="baseSelect" class="form-label">Base</label>
-                          <select id="baseSelect" class="form-control" name="base">
-                            <option value="">Any</option>
-                            {% for base in bases %}
-                              <option value="{{ base.id }}" {% if request.GET.base == base.id|stringformat:"s" %}selected{% endif %}>
-                                {{ base.name|escape }}
-                              </option>
-                            {% endfor %}
-                          </select>
-                        </div>
-
-                        <div class="form-group col-md-2 col-3 col-lg-2">
-                          <label for="inputEmail4" class="form-label">Bin</label>
-                          {% render_field filter.form.bin type="text" class="form-control"%}
-                        </div>
-                        <div class="form-group col-md-2 col-3 col-lg-2">
-                          <label for="inputPassword4" class="form-label">City</label>
-                          {% render_field filter.form.city type="text" class="form-control"%}
-                        </div>
-                        <div class="form-group col-md-2 col-3 col-lg-2">
-                          <label for="inputAddress" class="form-label">State</label>
-                          {% render_field filter.form.state type="text" class="form-control"%}
-                        </div>
-                        <div class="form-group col-md-2 col-3 col-lg-2">
-                            <label for="inputZip" class="form-label">Zip</label>
-                            {% render_field filter.form.zip type="text" class="form-control"%}
-                        </div>
-                        <div class="form-group col-md-2 col-3 col-lg-2">
-                            <label for="inputEmail4" class="form-label">Bank</label>
-                            {% render_field filter.form.bank type="text" class="form-control"%}
-                        </div>
-                        <div class="form-group col-md-2 col-3 col-lg-2">
-                            <label for="inputState" class="form-label">Refund</label>
-                            {% render_field filter.form.refund type="text" class="form-control form-select" %}
-                        </div>
-                        <div class="form-group col-md-2 col-3 col-lg-2">
-                            <label for="inputState" class="form-label">Country</label>
-                            {% render_field filter.form.card_country type="text" class="form-control form-select" %}
-                        </div>
-                        <div class="form-group col-md-2 col-3 col-lg-2">
-                            <label for="inputState" class="form-label">Brand</label>
-                            {% render_field filter.form.brand type="text" class="form-control form-select" %}
-                        </div>
-                        <div class="form-group col-md-2 col-3 col-lg-2">
-                            <label for="inputState" class="form-label">Type</label>
-                            {% render_field filter.form.typecard type="text" class="form-control form-select" %}
-                        </div>
-                        <div class="form-group col-md-2 col-3 col-lg-2">
-                            <label for="inputState" class="form-label">Card Level</label>
-                            {% render_field filter.form.levelcard type="text" class="form-control form-select" %}
-                        </div>
-                        <div class="col-12">
-                          <button type="submit" class="btn btn-outline-success" value="search">Search</button>
-                            <button type="submit" class="btn btn-outline-yellow" name="reset">Reset</button>
-                        </div>
-                      </form>
+          <div class="search-filter container py-4">
+            <div class="card shadow-lg border-0">
+              <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-search me-2"></i>Advanced Card Filter</h5>
+                <button class="btn btn-sm btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="true">
+                  Toggle
+                </button>
+              </div>
+              <div id="filterCollapse" class="collapse show">
+                <div class="card-body">
+                  <form class="row gy-3 gx-3" action="{% url 'search' %}" method="GET">
+                    <!-- Base Selection -->
+                    <div class="col-sm-6 col-md-3">
+                      <label for="baseSelect" class="form-label">Base</label>
+                      <select id="baseSelect" class="form-select" name="base">
+                        <option value="">Any</option>
+                        {% for base in bases %}
+                          <option value="{{ base.id }}" {% if request.GET.base == base.id|stringformat:"s" %}selected{% endif %}>{{ base.name|escape }}</option>
+                        {% endfor %}
+                      </select>
                     </div>
-                  </div>
+        
+                    <!-- Rendered Fields -->
+                    <div class="col-sm-6 col-md-3">
+                      <label class="form-label">Bin</label>
+                      {% render_field filter.form.bin class="form-control" %}
+                    </div>
+        
+                    <div class="col-sm-6 col-md-3">
+                      <label class="form-label">City</label>
+                      {% render_field filter.form.city class="form-control" %}
+                    </div>
+        
+                    <div class="col-sm-6 col-md-3">
+                      <label class="form-label">State</label>
+                      {% render_field filter.form.state class="form-control" %}
+                    </div>
+        
+                    <div class="col-sm-6 col-md-3">
+                      <label class="form-label">Zip</label>
+                      {% render_field filter.form.zip class="form-control" %}
+                    </div>
+        
+                    <div class="col-sm-6 col-md-3">
+                      <label class="form-label">Bank</label>
+                      {% render_field filter.form.bank class="form-control" %}
+                    </div>
+        
+                    <div class="col-sm-6 col-md-3">
+                      <label class="form-label">Refund</label>
+                      {% render_field filter.form.refund class="form-select" %}
+                    </div>
+        
+                    <div class="col-sm-6 col-md-3">
+                      <label class="form-label">Country</label>
+                      {% render_field filter.form.card_country class="form-select" %}
+                    </div>
+        
+                    <div class="col-sm-6 col-md-3">
+                      <label class="form-label">Brand</label>
+                      {% render_field filter.form.brand class="form-select" %}
+                    </div>
+        
+                    <div class="col-sm-6 col-md-3">
+                      <label class="form-label">Type</label>
+                      {% render_field filter.form.typecard class="form-select" %}
+                    </div>
+        
+                    <div class="col-sm-6 col-md-3">
+                      <label class="form-label">Card Level</label>
+                      {% render_field filter.form.levelcard class="form-select" %}
+                    </div>
+        
+                    <div class="col-12 d-flex justify-content-end mt-3">
+                      <button type="submit" class="btn btn-success me-2">Search</button>
+                      <button type="submit" class="btn btn-outline-secondary" name="reset">Reset</button>
+                    </div>
+                  </form>
                 </div>
+              </div>
             </div>
           </div>
-        </section>
+                </section>
           <div class="text-center">
             {% if messages %}
                 {% for message in messages %}

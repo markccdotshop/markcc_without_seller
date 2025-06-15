@@ -98,11 +98,6 @@
     background:  #141517;
     font-weight: bold;
   }
-  .news-page-container, .cvv-page-container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-  }
   .btn-status-check {
     padding: 6px 10px;
     font-size: 0.9rem;
@@ -112,11 +107,17 @@
     display: none;
     
   }
-  .card-data, .coin-address{
+  .card-data{
     background:  #141517;
     color: white !important;
     text-align: center !important;
     font-size: small;
+  }
+  .coin-address{
+    /* background:  #141517; */
+    color: white !important;
+    /* text-align: center !important; */
+    /* font-size: small; */
   }
   .cart-page-container {
     max-width: 1200px;
@@ -126,6 +127,7 @@
   .cart-table table tbody tr td:first-child{
     color: white !important;
   }
+
   #footer {
     padding: 20px 15px;
     flex-direction: column;

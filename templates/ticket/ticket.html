@@ -48,12 +48,12 @@
                     <tbody>
                         {% for ticket in tickets %}
                         <tr>
-                            <td>{{ ticket.id }}</td>
-                            <td>{{ ticket.subject }}</td>
-                            <td>{{ ticket.message }}</td>
-                            <td class="{{ ticket.get_status_class }}">{{ ticket.get_status_text }}</td>
-                            <td>{{ ticket.created_at|timesince }} ago</td>
-                            <td>
+                            <td data-label="ID">{{ ticket.id }}</td>
+                            <td data-label="Subject">{{ ticket.subject }}</td>
+                            <td data-label="Message">{{ ticket.message }}</td>
+                            <td data-label="Status" class="{{ ticket.get_status_class }}">{{ ticket.get_status_text }}</td>
+                            <td data-label="Created">{{ ticket.created_at|timesince }} ago</td>
+                            <td data-label="Action">
                                 {% if ticket.admin_reply %}
                                 <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#ticketModal{{ ticket.id }}">View</button>
                                 {% else %}
