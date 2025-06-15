@@ -67,7 +67,7 @@
                 <ul>
                     <li><b>Bin:</b> Filter by first 6 digits.</li>
                     <li><b>Country, State, City, Zip:</b> Use respective filters.</li>
-                    <li><b>Seller / Base:</b> Choose specific collections.</li>
+                    <li><b>Base:</b> Choose specific collections.</li>
                 </ul>
                 <p>After payment, visit the "Orders" page to manage cards.</p>
             </div>
@@ -80,7 +80,6 @@
                     <li><b>Report Bugs:</b> Let us know via support.</li>
                     <li><b>Suggestions:</b> We welcome ideas.</li>
                     <li><b>Support Time:</b> Not 24/7, be patient.</li>
-                    <li><b>EU/US CC:</b> Avoid risky bins.</li>
                     <li><b>Backup:</b> Keep copies of your cards.</li>
                 </ul>
             </div>
@@ -90,72 +89,6 @@
     </div>
 </div>
 
-<style>
-    :root {
-        --primary-color: #0751e6;
-        --secondary-color: #4dd456;
-        --text-color: #333;
-    }
-
-    .text-primary-custom {
-        color: var(--primary-color);
-    }
-
-    .custom-faq {
-        max-width: 800px;
-        margin: auto;
-        font-family: 'Segoe UI', sans-serif;
-    }
-
-    .faq-item {
-        border-bottom: 1px solid #ddd;
-        padding: 15px 0;
-    }
-
-    .faq-question {
-        font-weight: 600;
-        cursor: pointer;
-        position: relative;
-        padding-right: 25px;
-        color: var(--primary-color);
-        transition: color 0.3s ease;
-    }
-
-    .faq-question:hover {
-        color: var(--secondary-color);
-    }
-
-    .faq-question::after {
-        content: '+';
-        position: absolute;
-        right: 0;
-        top: 0;
-        font-size: 20px;
-        color: var(--primary-color);
-        transition: transform 0.3s, color 0.3s;
-    }
-
-    .faq-item.active .faq-question::after {
-        content: '-';
-        color: var(--secondary-color);
-    }
-
-    .faq-answer {
-        display: none;
-        margin-top: 10px;
-        color: var(--text-color);
-        animation: fadeIn 0.3s ease-in-out;
-    }
-
-    .faq-item.active .faq-answer {
-        display: block;
-    }
-
-    @keyframes fadeIn {
-        from {opacity: 0; transform: translateY(-5px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
-</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
