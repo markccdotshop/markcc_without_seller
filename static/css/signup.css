@@ -1,16 +1,16 @@
 /* signup.css */
 
 body {
-  background-image: url('/static/css/images/fullzhub.png'); /* অথবা .png/.gif */
+  background-image: url('/static/css/images/fullzhub.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: #fff; /* চাইলে text রঙ হালকা রাখো */
+  color: #fff;
 }
 
 .signup-container {
-  background-color: rgba(0, 0, 0, 0.75); /* Signup form-এর জন্য semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.75);
   padding: 30px;
   border-radius: 10px;
   max-width: 500px;

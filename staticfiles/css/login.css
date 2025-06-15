@@ -1,26 +1,21 @@
 /* login.css */
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-image: url('/static/css/images/fullzhub.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
 }
 
 .login-container {
-  width: 100%;
-  max-width: 400px;
-  background-color: #ffffff10;
-  backdrop-filter: blur(15px);
-  border-radius: 16px;
-  padding: 30px 25px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  color: white;
-  animation: fadeIn 1s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 100px auto;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
 }
 
 .login-content h2 {

@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # For local development, set ENVIRONMENT=development.
 # For production, set ENVIRONMENT=production.
 
-ENVIRONMENT = os.getenv('ENVIRONMENT', 'production')
+ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
 if ENVIRONMENT == 'production':
     from .settings_prod import *
 else:
