@@ -1,0 +1,31 @@
+WARNING 2025-06-15 06:03:54 log 88778 6222639104 Not Found: /favicon.ico
+ERROR 2025-06-15 06:23:12 log 88778 6222639104 Internal Server Error: /nepal/bininfo/bin/process_import/
+Traceback (most recent call last):
+  File "/Users/iqbal/.pyenv/versions/3.11.6/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iqbal/.pyenv/versions/3.11.6/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iqbal/.pyenv/versions/3.11.6/lib/python3.11/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iqbal/.pyenv/versions/3.11.6/lib/python3.11/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iqbal/.pyenv/versions/3.11.6/lib/python3.11/site-packages/django/contrib/admin/sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iqbal/.pyenv/versions/3.11.6/lib/python3.11/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iqbal/.pyenv/versions/3.11.6/lib/python3.11/site-packages/django/views/decorators/http.py", line 43, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/iqbal/.pyenv/versions/3.11.6/lib/python3.11/site-packages/import_export/admin.py", line 171, in process_import
+    tmp_storage.remove()
+  File "/Users/iqbal/.pyenv/versions/3.11.6/lib/python3.11/site-packages/import_export/tmp_storages.py", line 38, in remove
+    os.remove(self.get_full_path())
+FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/xp/dx2v4z0j6mq0qzm3jfry7j380000gn/T/tmpe8_0d88c'
+WARNING 2025-06-15 08:31:27 log 88778 6222589952 Method Not Allowed (GET): /nepal/bininfo/bin/process_import/
+WARNING 2025-06-15 08:31:29 log 88778 6222589952 Method Not Allowed (GET): /nepal/bininfo/bin/process_import/

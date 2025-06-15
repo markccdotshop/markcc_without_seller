@@ -38,7 +38,7 @@ SESSION_SAVE_EVERY_REQUEST = True
 #dbbackup on production
 
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
-DBBACKUP_STORAGE_OPTIONS = {'location': '/home/mark_seller_admin/backup/'}
+DBBACKUP_STORAGE_OPTIONS = {'location': '/home/fullzhub_seller_admin/backup/'}
 
 
 # LOGGING = {

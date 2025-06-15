@@ -8,7 +8,7 @@ SECRET_KEY='25^l5j0a(!o6am^-$6y_tnluht0n-3z=zpemm%=&(=95o%)h6o'
 #dbbackup on local host
 
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
-DBBACKUP_STORAGE_OPTIONS = {'location': '/Users/iqbal/Desktop/work-history/lotipoti-shop/markcc-seller/dbbackup/new/'}
+DBBACKUP_STORAGE_OPTIONS = {'location': '/Users/iqbal/Desktop/work-history/lotipoti-shop/fullzhub/dbbackup/local/'}
 
 #remember to comment this section on production
 #upload max file
