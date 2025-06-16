@@ -137,3 +137,98 @@
     padding: 5px;
   } 
 }
+
+
+/* ==== Responsive Styles for Login and Signup ==== */
+
+/* Medium Devices - Tablets */
+@media (max-width: 768px) {
+  .login-container, .signup-container {
+    margin: 40px 20px;
+    padding: 25px 20px;
+    max-width: 90%;
+    border-radius: 8px;
+  }
+
+  .login-content h2,
+  .signup-content h2 {
+    font-size: 24px;
+  }
+
+  .login-content p,
+  .signup-content p {
+    font-size: 13px;
+  }
+
+  .form-floating label,
+  .form-control::placeholder {
+    font-size: 13px;
+  }
+
+  .form-control {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .btn-success {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .input-group .form-control,
+  .input-group .btn {
+    font-size: 14px;
+  }
+
+  .text-center a {
+    font-size: 13px;
+  }
+}
+
+/* Small Devices - Mobiles */
+@media (max-width: 480px) {
+  .login-container, .signup-container {
+    margin: 20px;
+    padding: 20px 15px;
+  }
+
+  .login-content h2,
+  .signup-content h2 {
+    font-size: 22px;
+  }
+
+  .form-floating label,
+  .form-control::placeholder,
+  .form-control {
+    font-size: 13px;
+  }
+
+  .btn-success {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .input-group .form-control,
+  .input-group .btn {
+    font-size: 13px;
+  }
+
+  .login-content p,
+  .signup-content p,
+  .text-center a {
+    font-size: 12px;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 768px) {
+  body, html {
+    overflow-x: hidden;
+  }
+}
+
+/* Optional: Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
